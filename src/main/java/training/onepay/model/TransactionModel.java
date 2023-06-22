@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "T_TRANSACTION")
-public class Transaction {
+public class TransactionModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "TRANSACTION_ID", updatable = false, nullable = false)
@@ -31,14 +31,14 @@ public class Transaction {
 	@Column(name = "TRANSACTION_PAYMENT_MODE", nullable = false)
 	private PaymentMode paymentMode;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "transaction", cascade = { CascadeType.PERSIST })
-	private List<Order> orders;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "transaction", cascade = { CascadeType.ALL })
+	private List<OrderModel> orders;
 
-	public Transaction() {
+	public TransactionModel() {
 		super();
 	}
 
-	public Transaction(UUID id, BigDecimal sum, Status status, PaymentMode paymentMode, List<Order> orders) {
+	public TransactionModel(UUID id, BigDecimal sum, Status status, PaymentMode paymentMode, List<OrderModel> orders) {
 		super();
 		this.id = id;
 		this.sum = sum;
@@ -79,11 +79,11 @@ public class Transaction {
 		this.paymentMode = paymentMode;
 	}
 
-	public List<Order> getOrders() {
+	public List<OrderModel> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(List<Order> orders) {
+	public void setOrders(List<OrderModel> orders) {
 		this.orders = orders;
 	}
 

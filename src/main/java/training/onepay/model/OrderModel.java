@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "T_ORDER")
-public class Order {
+public class OrderModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
@@ -32,13 +32,13 @@ public class Order {
 
 	@ManyToOne
 	@JoinColumn(name = "ORDER_TRANSACTION_ID")
-	private Transaction transaction;
+	private TransactionModel transaction;
 
-	public Order() {
+	public OrderModel() {
 		super();
 	}
 
-	public Order(UUID id, String name, int amount, BigDecimal price, Transaction transaction) {
+	public OrderModel(UUID id, String name, int amount, BigDecimal price, TransactionModel transaction) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -79,11 +79,11 @@ public class Order {
 		this.price = price;
 	}
 
-	public Transaction getTransaction() {
+	public TransactionModel getTransaction() {
 		return transaction;
 	}
 
-	public void setTransaction(Transaction transaction) {
+	public void setTransaction(TransactionModel transaction) {
 		this.transaction = transaction;
 	}
 
