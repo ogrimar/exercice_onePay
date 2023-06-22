@@ -12,5 +12,5 @@ public interface TransactionService {
 	
 	public Transaction createTransaction(Transaction t);
 	
-	public Transaction updateTransaction(Transaction t, UUID id);
+	public Transaction updateTransaction(Transaction t);
 }

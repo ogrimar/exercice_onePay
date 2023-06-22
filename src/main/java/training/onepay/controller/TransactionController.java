@@ -43,8 +43,8 @@ public class TransactionController {
 		return service.createTransaction(t);
 	}
 
-	@PutMapping(value = "/id/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Transaction updateTransaction(@RequestBody Transaction t, @PathVariable("id") UUID id) {
-		return service.updateTransaction(t, id);
+	@PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Transaction updateTransaction(@RequestBody Transaction t) {
+		return service.updateTransaction(t);
 	}
 }

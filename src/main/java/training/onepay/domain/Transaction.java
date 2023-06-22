@@ -1,6 +1,7 @@
 package training.onepay.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,6 +25,7 @@ public class Transaction {
 
 	public Transaction() {
 		super();
+		orders = new ArrayList<Order>();
 	}
 
 	public Transaction(UUID id, BigDecimal sum, Status status, PaymentMode paymentMode, List<Order> orders) {

@@ -31,7 +31,7 @@ public class TransactionModel {
 	@Column(name = "TRANSACTION_PAYMENT_MODE", nullable = false)
 	private PaymentMode paymentMode;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "transaction", cascade = { CascadeType.ALL })
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "transaction", cascade = { CascadeType.ALL }, orphanRemoval = true)
 	private List<OrderModel> orders;
 
 	public TransactionModel() {
