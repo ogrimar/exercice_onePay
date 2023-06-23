@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import training.onepay.domain.ErrorResponse;
 
+/**
+ * Exceptions handler
+ */
 @ControllerAdvice
 public class ErrorHandlerController {
 

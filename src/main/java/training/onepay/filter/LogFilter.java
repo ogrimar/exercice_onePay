@@ -14,6 +14,9 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 
 
+/**
+ * Filter to log calls
+ */
 @Component
 public class LogFilter implements Filter {
 

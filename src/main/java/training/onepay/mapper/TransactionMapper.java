@@ -10,6 +10,9 @@ import training.onepay.model.TransactionModel;
 
 public abstract class TransactionMapper {
 
+	/**
+	 * Transform a TransactionModel into a Transaction
+	 */
 	public static Transaction toModel(TransactionModel t) {
 		List<Order> orders;
 		if (t.getOrders() != null) {
@@ -20,6 +23,9 @@ public abstract class TransactionMapper {
 		return new Transaction(t.getId(), t.getSum(), t.getStatus(), t.getPaymentMode(), orders);
 	}
 
+	/**
+	 * Transform a Transaction into a TransactionModel
+	 */
 	public static TransactionModel toDomain(Transaction t) {
 		TransactionModel res = new TransactionModel();
 		List<OrderModel> orders;
