@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,22 +31,22 @@ public class TransactionController {
 	}
 
 	@GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Transaction> getAll() {
-		return service.getAllTransactions();
+	public ResponseEntity<List<Transaction>> getAll() {
+		return new ResponseEntity<List<Transaction>>(service.getAllTransactions(), HttpStatusCode.valueOf(200));
 	}
 	
 	@GetMapping(value = "/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Transaction getById(@PathVariable("id") UUID id) {
-		return service.getTransaction(id);
+	public ResponseEntity<Transaction> getById(@PathVariable("id") UUID id) {
+		return new ResponseEntity<Transaction>(service.getTransaction(id), HttpStatusCode.valueOf(200));
 	}
 	
 	@PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Transaction createTransaction(@RequestBody Transaction t) {
-		return service.createTransaction(t);
+	public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction t) {
+		return new ResponseEntity<Transaction>(service.createTransaction(t), HttpStatusCode.valueOf(201));
 	}
 
 	@PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Transaction updateTransaction(@RequestBody Transaction t) {
-		return service.updateTransaction(t);
+	public ResponseEntity<Transaction> updateTransaction(@RequestBody Transaction t) {
+		return new ResponseEntity<Transaction>(service.updateTransaction(t), HttpStatusCode.valueOf(201));
 	}
 }
