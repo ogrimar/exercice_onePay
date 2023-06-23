@@ -33,8 +33,8 @@ class OnepayApplicationTests {
 		t1.setPaymentMode(PaymentMode.CREDIT_CARD);
 		t1.setSum(BigDecimal.valueOf(54.8));
 		List<Order> orders1 = new ArrayList<Order>();
-		orders1.add(new Order(null, "gants de ski", 4, BigDecimal.valueOf(10)));
-		orders1.add(new Order(null, "bonnet en laine", 1, BigDecimal.valueOf(14.8)));
+		orders1.add(new Order(null, "ski gloves", 4, BigDecimal.valueOf(10)));
+		orders1.add(new Order(null, "wool cap", 1, BigDecimal.valueOf(14.8)));
 		t1.setOrders(orders1);
 		
 		final Transaction t3 = controller.createTransaction(t1).getBody();
@@ -51,7 +51,7 @@ class OnepayApplicationTests {
 		t2.setPaymentMode(PaymentMode.PAYPAL);
 		t2.setSum(BigDecimal.valueOf(208));
 		List<Order> orders2 = new ArrayList<Order>();
-		Order order = new Order(null, "velo", 4, BigDecimal.valueOf(208));
+		Order order = new Order(null, "bike", 4, BigDecimal.valueOf(208));
 		orders2.add(order);
 		t2.setOrders(orders2);
 		
